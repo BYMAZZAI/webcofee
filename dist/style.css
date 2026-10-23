@@ -126,3 +126,14 @@ body{background-image:url('assets/bean-scatter.svg');background-size:460px 440px
 /* A short fade replaces the long closing turn for every modal. */
 dialog[data-closing="true"]::backdrop{animation:modal-shade-out .28s ease-out both}
 @keyframes modal-shade-out{from{opacity:1}to{opacity:0}}
+
+
+/* One tile per loop at 5 px/s: every repeat joins without a jump. */
+body{--bean-tile-x:460px;--bean-cycle:92s}
+.choose-section{--bean-tile-x:410px;--bean-cycle:82s}
+.counter-story,.menu-bottom-art,.visit,.reviews{--bean-tile-x:350px;--bean-cycle:70s}
+.guide-decoration{--bean-tile-x:320px;--bean-cycle:64s;--bean-y:center}
+.delivery-box{--bean-tile-x:150px;--bean-cycle:30s}
+body,.choose-section,.counter-story,.menu-bottom-art,.visit,.reviews,.guide-decoration,.delivery-box{animation:bean-pattern-drift var(--bean-cycle) linear infinite}
+@keyframes bean-pattern-drift{from{background-position:0 var(--bean-y,0px)}to{background-position:calc(-1 * var(--bean-tile-x)) var(--bean-y,0px)}}
+body.reduce-motion{animation:none!important}
